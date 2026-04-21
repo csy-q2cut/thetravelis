@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Travel Is — Resort Marketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;400;700&family=Noto+Sans+KR:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-serif-kr {
+            font-family: 'Noto Serif KR', serif;
+        }
+        
+        /* 고정 배경 효과 (Parallax) */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* 모바일 기기에서는 background-attachment: fixed가 제대로 작동하지 않을 수 있어 미디어 쿼리 처리 */
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+
+        /* 부드러운 전환을 위한 애니메이션 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 텍스트 가독성을 위한 레이어 */
+        .text-shadow {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 overflow-x-hidden">
+
+    <!-- 네비게이션 바 -->
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 text-white transition-all duration-500" id="navbar">
+        <div class="text-2xl font-light tracking-[0.2em] font-serif-kr">THE TRAVEL IS</div>
+        <div class="hidden md:flex space-x-12 text-sm tracking-widest font-light">
+            <a href="#" class="hover:text-stone-300 transition-colors">STORY</a>
+            <a href="#" class="hover:text-stone-300 transition-colors">ROOMS</a>
+            <a href="#" class="hover:text-stone-300 transition-colors">EXPERIENCE</a>
+            <a href="#" class="hover:text-stone-300 transition-colors">RESERVATION</a>
+        </div>
+        <button class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </nav>
+
+    <!-- 섹션 1: 메인 히어로 (고정 배경) -->
+    <section class="relative h-screen flex items-center justify-center parallax-bg" 
+             style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000');">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 text-center text-white px-4 fade-in" id="hero-text">
+            <h1 class="text-6xl md:text-8xl font-thin tracking-[0.3em] font-serif-kr mb-6 text-shadow">THE TRAVEL IS</h1>
+            <p class="text-lg md:text-xl font-extralight tracking-widest italic opacity-90">여정의 완성은 머무름에 있습니다</p>
+        </div>
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <span class="text-white text-[10px] tracking-[0.4em] uppercase mb-4 opacity-70">Scroll To Experience</span>
+            <div class="w-[1px] h-16 bg-white/30 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-white animate-scroll-down"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 섹션 2: 브랜드 철학 (텍스트 영역) -->
+    <section class="py-40 px-6 bg-stone-50">
+        <div class="max-w-3xl mx-auto text-center space-y-12">
+            <div class="space-y-4 fade-in">
+                <span class="text-stone-400 text-sm tracking-[0.5em] uppercase">Philosophy</span>
+                <h2 class="text-3xl md:text-4xl font-serif-kr italic text-stone-900">당신의 스크롤을 따라 흐르는 휴식</h2>
+            </div>
+            <p class="text-lg text-stone-500 font-light leading-relaxed fade-in">
+                배경은 자리를 지키고, 이야기는 부드럽게 흐릅니다.<br>
+                우리는 이 공간을 통해 시각적 경계가 없는 무한한 평온함을 선사하고자 합니다.<br>
+                끊김 없이 이어지는 선과 면의 조화 속에서 자연스러운 몰입을 경험하세요.
+            </p>
+            <div class="w-px h-24 bg-stone-200 mx-auto fade-in"></div>
+        </div>
+    </section>
+
+    <!-- 섹션 3: 인피니티 풀 (고정 배경) -->
+    <section class="relative h-[80vh] flex items-center justify-center parallax-bg" 
+             style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=2000');">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative z-10 text-center text-white px-4 fade-in">
+            <h3 class="text-4xl md:text-5xl font-serif-kr italic mb-4">Infinite Horizon</h3>
+            <p class="text-sm tracking-[0.3em] font-light uppercase">바다와 하늘이 만나는 경계</p>
+        </div>
+    </section>
+
+    <!-- 섹션 4: 공간 갤러리 (그리드) -->
+    <section class="py-40 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                <div class="space-y-8 fade-in">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200" alt="Resort" class="w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                    <div class="space-y-2">
+                        <h4 class="text-2xl font-serif-kr italic">Nature-Focused Architecture</h4>
+                        <p class="text-stone-500 font-light">자연의 곡선을 닮은 건축물은 주변 경관과 완벽한 조화를 이룹니다.</p>
+                    </div>
+                </div>
+                <div class="space-y-8 md:pt-40 fade-in">
+                    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=1200" alt="Room" class="w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                    <div class="space-y-2">
+                        <h4 class="text-2xl font-serif-kr italic">Serene Private Suite</h4>
+                        <p class="text-stone-500 font-light">오직 당신만을 위한 정적 속에서 가장 깊은 휴식을 마주하세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 섹션 5: 예약 안내 (고정 배경) -->
+    <section class="relative h-[90vh] flex items-center justify-center parallax-bg" 
+             style="background-image: url('https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=2000');">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center text-white max-w-2xl px-6 fade-in">
+            <h2 class="text-5xl md:text-6xl font-serif-kr italic mb-8">Begin Your Journey</h2>
+            <p class="text-lg font-light mb-12 opacity-80">
+                우리는 당신의 방문을 가장 소중한 기억으로 바꿀 준비가 되어 있습니다.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#" class="px-12 py-5 border border-white hover:bg-white hover:text-stone-900 transition-all duration-500 tracking-[0.2em] text-xs font-light uppercase">Inquiry</a>
+                <a href="#" class="px-12 py-5 bg-white text-stone-900 hover:bg-stone-200 transition-all duration-500 tracking-[0.2em] text-xs font-light uppercase">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="py-20 px-8 bg-stone-900 text-stone-400 text-center">
+        <div class="text-xl font-serif-kr text-white tracking-[0.3em] mb-8">THE TRAVEL IS</div>
+        <div class="flex justify-center space-x-6 text-xs tracking-widest mb-12 font-light">
+            <a href="#">INSTAGRAM</a>
+            <a href="#">FACEBOOK</a>
+            <a href="#">CONTACT</a>
+        </div>
+        <p class="text-[10px] tracking-widest font-light opacity-50 uppercase">© 2024 The Travel Is Resort Group. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 스크롤 시 네비게이션 바 배경색 변경 및 페이드 인 효과
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            // 네비게이션 효과
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-stone-900/90', 'py-4', 'backdrop-blur-sm');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-stone-900/90', 'py-4', 'backdrop-blur-sm');
+                navbar.classList.add('py-6');
+            }
+
+            // 페이드 인 요소 체크
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+
+        // 초기 히어로 텍스트 애니메이션
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('hero-text').classList.add('visible');
+            }, 300);
+        };
+    </script>
+
+    <style>
+        /* 스크롤 다운 애니메이션 선 */
+        @keyframes scroll-down {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .animate-scroll-down {
+            animation: scroll-down 2s infinite ease-in-out;
+        }
+    </style>
+</body>
+</html>
