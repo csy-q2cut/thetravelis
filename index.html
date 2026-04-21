@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Travel Is — Resort Marketing</title>
+    <title>The Travel Is — 리조트 전문 마케팅</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;400;700&family=Noto+Sans+KR:wght@100;300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -23,180 +23,361 @@
             background-size: cover;
         }
 
-        /* 모바일 기기에서는 background-attachment: fixed가 제대로 작동하지 않을 수 있어 미디어 쿼리 처리 */
         @media (max-width: 768px) {
             .parallax-bg {
                 background-attachment: scroll;
             }
         }
 
-        /* 부드러운 전환을 위한 애니메이션 */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 1.2s ease-out;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
         }
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* 텍스트 가독성을 위한 레이어 */
-        .text-shadow {
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        /* 검색 바 스타일 */
+        .search-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 overflow-x-hidden">
+<body class="bg-white text-stone-800 overflow-x-hidden">
 
-    <!-- 네비게이션 바 -->
-    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 text-white transition-all duration-500" id="navbar">
-        <div class="text-2xl font-light tracking-[0.2em] font-serif-kr">THE TRAVEL IS</div>
-        <div class="hidden md:flex space-x-12 text-sm tracking-widest font-light">
-            <a href="#" class="hover:text-stone-300 transition-colors">STORY</a>
-            <a href="#" class="hover:text-stone-300 transition-colors">ROOMS</a>
-            <a href="#" class="hover:text-stone-300 transition-colors">EXPERIENCE</a>
-            <a href="#" class="hover:text-stone-300 transition-colors">RESERVATION</a>
+    <!-- 네비게이션 -->
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-6 text-white transition-all duration-500" id="navbar">
+        <div class="text-xl font-light tracking-tighter">
+            <span class="font-serif-kr italic">the</span> <span class="font-bold">Travel.is</span>
         </div>
-        <button class="md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-        </button>
+        <div class="hidden md:flex space-x-10 text-[13px] tracking-widest font-light">
+            <a href="#" class="hover:opacity-60 transition-opacity">DESTINATIONS</a>
+            <a href="#" class="hover:opacity-60 transition-opacity">RESORTS</a>
+            <a href="#" class="hover:opacity-60 transition-opacity">PARTNERS</a>
+            <a href="#" class="hover:opacity-60 transition-opacity">COMPANY</a>
+        </div>
     </nav>
 
-    <!-- 섹션 1: 메인 히어로 (고정 배경) -->
-    <section class="relative h-screen flex items-center justify-center parallax-bg" 
+    <!-- 섹션 1: 메인 히어로 (스크린샷 1 반영) -->
+    <section class="relative h-screen flex flex-col items-center justify-center parallax-bg" 
              style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000');">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="relative z-10 text-center text-white px-4 fade-in" id="hero-text">
-            <h1 class="text-6xl md:text-8xl font-thin tracking-[0.3em] font-serif-kr mb-6 text-shadow">THE TRAVEL IS</h1>
-            <p class="text-lg md:text-xl font-extralight tracking-widest italic opacity-90">여정의 완성은 머무름에 있습니다</p>
-        </div>
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
-            <span class="text-white text-[10px] tracking-[0.4em] uppercase mb-4 opacity-70">Scroll To Experience</span>
-            <div class="w-[1px] h-16 bg-white/30 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-full bg-white animate-scroll-down"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 섹션 2: 브랜드 철학 (텍스트 영역) -->
-    <section class="py-40 px-6 bg-stone-50">
-        <div class="max-w-3xl mx-auto text-center space-y-12">
-            <div class="space-y-4 fade-in">
-                <span class="text-stone-400 text-sm tracking-[0.5em] uppercase">Philosophy</span>
-                <h2 class="text-3xl md:text-4xl font-serif-kr italic text-stone-900">당신의 스크롤을 따라 흐르는 휴식</h2>
-            </div>
-            <p class="text-lg text-stone-500 font-light leading-relaxed fade-in">
-                배경은 자리를 지키고, 이야기는 부드럽게 흐릅니다.<br>
-                우리는 이 공간을 통해 시각적 경계가 없는 무한한 평온함을 선사하고자 합니다.<br>
-                끊김 없이 이어지는 선과 면의 조화 속에서 자연스러운 몰입을 경험하세요.
-            </p>
-            <div class="w-px h-24 bg-stone-200 mx-auto fade-in"></div>
-        </div>
-    </section>
-
-    <!-- 섹션 3: 인피니티 풀 (고정 배경) -->
-    <section class="relative h-[80vh] flex items-center justify-center parallax-bg" 
-             style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=2000');">
         <div class="absolute inset-0 bg-black/10"></div>
-        <div class="relative z-10 text-center text-white px-4 fade-in">
-            <h3 class="text-4xl md:text-5xl font-serif-kr italic mb-4">Infinite Horizon</h3>
-            <p class="text-sm tracking-[0.3em] font-light uppercase">바다와 하늘이 만나는 경계</p>
+        
+        <div class="relative z-10 w-full max-w-6xl px-12 text-white">
+            <div class="mb-6 opacity-80 text-sm tracking-[0.2em] font-light">
+                리조트 전문 개발 & 마케팅 · SINCE 2003
+            </div>
+            <h1 class="text-6xl md:text-8xl font-serif-kr mb-8 leading-tight">
+                여기, <br>
+                <span class="italic font-light text-5xl md:text-7xl block mb-2">a quiet</span> 파라다이스.
+            </h1>
+            <div class="flex items-end justify-between border-t border-white/30 pt-8 mt-12">
+                <div class="max-w-md text-sm font-light leading-relaxed opacity-90">
+                    더트래블이즈는 20여 년간 아시아·태평양 9개국 60여 개 리조트를 직접 답사하고 운영해 온 리조트 전문 마케팅 법인입니다.
+                </div>
+                <div class="text-right hidden md:block">
+                    <div class="text-xs tracking-widest mb-1 opacity-70 uppercase">Featured Resort</div>
+                    <div class="text-2xl font-serif-kr italic">Shangri-La Mactan</div>
+                    <div class="text-xs tracking-widest opacity-70 uppercase">Cebu, Philippines</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 검색 바 (스크린샷 1 하단) -->
+        <div class="absolute bottom-0 w-full max-w-7xl px-4 md:px-12 transform translate-y-1/2 z-20">
+            <div class="search-bar grid grid-cols-1 md:grid-cols-5 shadow-2xl">
+                <div class="p-6 border-r border-stone-100">
+                    <label class="block text-[10px] text-orange-400 uppercase tracking-widest mb-1">Destination · 여행지</label>
+                    <div class="text-stone-800 font-medium">몰디브, 남말레 환초</div>
+                    <div class="text-[11px] text-stone-400">Maldives · 11 resorts</div>
+                </div>
+                <div class="p-6 border-r border-stone-100">
+                    <label class="block text-[10px] text-orange-400 uppercase tracking-widest mb-1">Check-in · 입실</label>
+                    <div class="text-stone-800 font-medium">2026. 05. 14 (목)</div>
+                    <div class="text-[11px] text-stone-400">Thu</div>
+                </div>
+                <div class="p-6 border-r border-stone-100">
+                    <label class="block text-[10px] text-orange-400 uppercase tracking-widest mb-1">Check-out · 퇴실</label>
+                    <div class="text-stone-800 font-medium">2026. 05. 20 (수)</div>
+                    <div class="text-[11px] text-stone-400">6 nights</div>
+                </div>
+                <div class="p-6 border-r border-stone-100">
+                    <label class="block text-[10px] text-orange-400 uppercase tracking-widest mb-1">Guests · 인원</label>
+                    <div class="text-stone-800 font-medium">성인 2 · 허니문</div>
+                    <div class="text-[11px] text-stone-400">2 adults</div>
+                </div>
+                <button class="bg-[#2d74a4] text-white p-6 flex items-center justify-center hover:bg-[#25638d] transition-colors group">
+                    <span class="tracking-widest text-sm mr-4">검색 · SEARCH</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- 섹션 4: 공간 갤러리 (그리드) -->
-    <section class="py-40 px-8 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-                <div class="space-y-8 fade-in">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200" alt="Resort" class="w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
-                    <div class="space-y-2">
-                        <h4 class="text-2xl font-serif-kr italic">Nature-Focused Architecture</h4>
-                        <p class="text-stone-500 font-light">자연의 곡선을 닮은 건축물은 주변 경관과 완벽한 조화를 이룹니다.</p>
+    <!-- 섹션 2: 사계절, 네 곳 (스크린샷 2 반영) -->
+    <section class="pt-60 pb-32 px-12 bg-stone-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-16 fade-in">
+                <div class="mb-8 md:mb-0">
+                    <span class="text-orange-400 text-xs tracking-widest uppercase block mb-4">— FEATURED DESTINATIONS · 01</span>
+                    <h2 class="text-4xl md:text-5xl font-serif-kr mb-4 text-stone-900">사계절, 네 곳.</h2>
+                    <p class="text-3xl md:text-4xl font-serif-kr italic text-orange-400">Our signature shores.</p>
+                </div>
+                <p class="max-w-md text-stone-500 font-light leading-relaxed">
+                    트래블이즈가 직접 계약한 지역 중 파트너사에게 가장 많이 선택받은 네 곳. 필리핀의 비치프론트, 괌의 가족 리조트, 발리의 허니문 리트릿, 몰디브의 오버워터 빌라까지.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- 필리핀 -->
+                <div class="group cursor-pointer fade-in">
+                    <div class="relative h-96 overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Philippines">
+                        <div class="absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-[10px] tracking-widest font-bold">14 RESORTS</div>
+                    </div>
+                    <span class="text-[10px] text-orange-400 tracking-widest uppercase mb-2 block">PHILIPPINES</span>
+                    <h3 class="text-2xl font-serif-kr mb-2">필리핀</h3>
+                    <p class="text-xs text-stone-400 mb-4 tracking-tighter">Cebu · Boracay · Manila</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">샹그릴라 막탄, 크림슨, 무벤픽 — 프리미엄 비치 리조트의 정석.</p>
+                </div>
+                <!-- 괌 -->
+                <div class="group cursor-pointer fade-in" style="transition-delay: 0.1s;">
+                    <div class="relative h-96 overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Guam">
+                        <div class="absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-[10px] tracking-widest font-bold">8 RESORTS</div>
+                    </div>
+                    <span class="text-[10px] text-orange-400 tracking-widest uppercase mb-2 block">GUAM</span>
+                    <h3 class="text-2xl font-serif-kr mb-2">괌</h3>
+                    <p class="text-xs text-stone-400 mb-4 tracking-tighter">Tumon Bay</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">쉐라톤, 두짓타니, 힐튼 — 가족 단위 고객에게 최적화된 라인업.</p>
+                </div>
+                <!-- 발리 -->
+                <div class="group cursor-pointer fade-in" style="transition-delay: 0.2s;">
+                    <div class="relative h-96 overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Bali">
+                        <div class="absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-[10px] tracking-widest font-bold">9 RESORTS</div>
+                    </div>
+                    <span class="text-[10px] text-orange-400 tracking-widest uppercase mb-2 block">INDONESIA</span>
+                    <h3 class="text-2xl font-serif-kr mb-2">발리</h3>
+                    <p class="text-xs text-stone-400 mb-4 tracking-tighter">Bali · Nusa Dua</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">뮬리아 발리, 리츠칼튼, 세인트레지스 — 허니문과 시그니처 리트릿.</p>
+                </div>
+                <!-- 몰디브 -->
+                <div class="group cursor-pointer fade-in" style="transition-delay: 0.3s;">
+                    <div class="relative h-96 overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Maldives">
+                        <div class="absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-[10px] tracking-widest font-bold">11 RESORTS</div>
+                    </div>
+                    <span class="text-[10px] text-orange-400 tracking-widest uppercase mb-2 block">MALDIVES</span>
+                    <h3 class="text-2xl font-serif-kr mb-2">몰디브</h3>
+                    <p class="text-xs text-stone-400 mb-4 tracking-tighter">Baros · Kurumba · Velassaru</p>
+                    <p class="text-xs text-stone-500 leading-relaxed">오버워터 빌라와 프라이빗 아일랜드, 프리미엄 허니문의 완성.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 섹션 3: 올해의 시그니처 리조트 (스크린샷 3, 4 반영) -->
+    <section class="py-32 px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 fade-in">
+                <div>
+                    <span class="text-orange-400 text-xs tracking-widest uppercase block mb-4">— SIGNATURE RESORTS · 02</span>
+                    <h2 class="text-4xl md:text-5xl font-serif-kr mb-4 text-stone-900">올해의 시그니처 리조트</h2>
+                    <p class="text-2xl md:text-3xl font-serif-kr italic text-orange-400 font-light">hand-picked by our directors.</p>
+                </div>
+                <a href="#" class="text-xs tracking-[0.2em] text-stone-400 hover:text-stone-900 transition-colors uppercase pb-2 border-b border-stone-200">View All · 전체보기</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- 상그릴라 막탄 -->
+                <div class="relative group fade-in">
+                    <div class="overflow-hidden h-[600px]">
+                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" alt="Shangri-La">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-12 text-white">
+                        <span class="text-[10px] tracking-widest uppercase mb-2 opacity-70">Philippines · Mactan</span>
+                        <h4 class="text-3xl font-serif-kr mb-2">Shangri-La Mactan</h4>
+                        <p class="text-stone-300 font-light mb-6">샹그릴라 막탄 리조트</p>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-6">
+                            <span class="text-xs font-light tracking-wider italic opacity-60">세부의 대표 비치프론트 리조트 · 골프 & 오션뷰</span>
+                            <span class="text-xs tracking-widest font-bold group-hover:translate-x-2 transition-transform">VIEW →</span>
+                        </div>
                     </div>
                 </div>
-                <div class="space-y-8 md:pt-40 fade-in">
-                    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=1200" alt="Room" class="w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
-                    <div class="space-y-2">
-                        <h4 class="text-2xl font-serif-kr italic">Serene Private Suite</h4>
-                        <p class="text-stone-500 font-light">오직 당신만을 위한 정적 속에서 가장 깊은 휴식을 마주하세요.</p>
+                <!-- 바로스 몰디브 -->
+                <div class="relative group fade-in" style="transition-delay: 0.1s;">
+                    <div class="overflow-hidden h-[600px]">
+                        <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" alt="Baros">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2d74a4]/80 via-transparent to-transparent flex flex-col justify-end p-12 text-white">
+                        <span class="text-[10px] tracking-widest uppercase mb-2 opacity-70">Maldives · South Male</span>
+                        <h4 class="text-3xl font-serif-kr mb-2">Baros Maldives</h4>
+                        <p class="text-stone-300 font-light mb-6">바로스 몰디브</p>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-6">
+                            <span class="text-xs font-light tracking-wider italic opacity-60">어른들을 위한 성인 전용 프라이빗 아일랜드 리조트</span>
+                            <span class="text-xs tracking-widest font-bold group-hover:translate-x-2 transition-transform">VIEW →</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 섹션 5: 예약 안내 (고정 배경) -->
-    <section class="relative h-[90vh] flex items-center justify-center parallax-bg" 
+    <!-- 섹션 4: 어바웃 (스크린샷 5 반영) -->
+    <section class="py-40 px-12 bg-[#2d74a4] text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div class="w-full md:w-1/2 relative fade-in">
+                <div class="relative h-[600px]">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover rounded-sm shadow-2xl" alt="Marketing">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#1e4e70] rounded-full flex flex-col items-center justify-center border-4 border-[#2d74a4]">
+                        <span class="text-3xl font-serif-kr italic">23</span>
+                        <span class="text-[8px] tracking-widest text-center uppercase opacity-70 px-4">Years in <br> Resort Marketing</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 space-y-10 fade-in">
+                <div>
+                    <span class="text-white/60 text-xs tracking-widest uppercase block mb-4">— ABOUT THE TRAVEL IS · 03</span>
+                    <h2 class="text-5xl font-serif-kr mb-6">리조트만, 깊이.</h2>
+                    <p class="text-3xl font-serif-kr italic text-white/80 font-light mb-8">A resort-only marketing house.</p>
+                    <p class="text-sm font-light leading-relaxed text-white/70">
+                        더 트래블이즈는 2003년 설립 이래 리조트 전문 개발·마케팅 한 가지 일만 해왔습니다. 아시아·태평양 9개국 60여 개 리조트와의 직계약 라인을 통해 전국 400여 개 파트너 여행사에 신뢰할 수 있는 상품을 공급합니다.
+                    </p>
+                </div>
+                <div class="grid grid-cols-3 gap-8 pt-10 border-t border-white/20">
+                    <div>
+                        <div class="text-4xl font-serif-kr mb-2 italic">60<span class="text-xl">+</span></div>
+                        <div class="text-[10px] tracking-widest uppercase opacity-60">Resorts</div>
+                        <div class="text-xs mt-1">직계약 리조트</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-serif-kr mb-2 italic">9</div>
+                        <div class="text-[10px] tracking-widest uppercase opacity-60">Countries</div>
+                        <div class="text-xs mt-1">아시아 · 태평양</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-serif-kr mb-2 italic">400<span class="text-xl">+</span></div>
+                        <div class="text-[10px] tracking-widest uppercase opacity-60">B2B Partners</div>
+                        <div class="text-xs mt-1">파트너 여행사</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 pt-10">
+                    <div class="bg-white/10 px-6 py-4 text-[11px] tracking-tighter opacity-80 border border-white/10">KATA 한국여행업협회</div>
+                    <div class="bg-white/10 px-6 py-4 text-[11px] tracking-tighter opacity-80 border border-white/10">Korea Tourism Organization</div>
+                    <div class="bg-white/10 px-6 py-4 text-[11px] tracking-tighter opacity-80 border border-white/10">Tour Information Center</div>
+                    <div class="bg-white/10 px-6 py-4 text-[11px] tracking-tighter opacity-80 border border-white/10">Seoul Guarantee Insurance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 섹션 5: 하단 배너 (고정 배경 활용) -->
+    <section class="relative h-[60vh] flex items-center justify-center parallax-bg" 
              style="background-image: url('https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=2000');">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="relative z-10 text-center text-white max-w-2xl px-6 fade-in">
-            <h2 class="text-5xl md:text-6xl font-serif-kr italic mb-8">Begin Your Journey</h2>
-            <p class="text-lg font-light mb-12 opacity-80">
-                우리는 당신의 방문을 가장 소중한 기억으로 바꿀 준비가 되어 있습니다.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="#" class="px-12 py-5 border border-white hover:bg-white hover:text-stone-900 transition-all duration-500 tracking-[0.2em] text-xs font-light uppercase">Inquiry</a>
-                <a href="#" class="px-12 py-5 bg-white text-stone-900 hover:bg-stone-200 transition-all duration-500 tracking-[0.2em] text-xs font-light uppercase">Book Now</a>
-            </div>
+        <div class="absolute inset-0 bg-[#1e4e70]/40"></div>
+        <div class="relative z-10 text-center text-white px-4 fade-in">
+            <h2 class="text-5xl font-serif-kr italic mb-8">Ready for Paradise?</h2>
+            <p class="text-sm tracking-[0.4em] font-light uppercase mb-12">당신의 여정은 이곳에서 시작됩니다</p>
+            <button class="px-16 py-5 border border-white hover:bg-white hover:text-[#1e4e70] transition-all duration-500 text-xs tracking-[0.2em] font-bold uppercase">Contact Now</button>
         </div>
     </section>
 
-    <!-- 푸터 -->
-    <footer class="py-20 px-8 bg-stone-900 text-stone-400 text-center">
-        <div class="text-xl font-serif-kr text-white tracking-[0.3em] mb-8">THE TRAVEL IS</div>
-        <div class="flex justify-center space-x-6 text-xs tracking-widest mb-12 font-light">
-            <a href="#">INSTAGRAM</a>
-            <a href="#">FACEBOOK</a>
-            <a href="#">CONTACT</a>
+    <!-- 푸터 (스크린샷 6 반영) -->
+    <footer class="bg-[#1e4e70] text-white/50 pt-24 pb-12 px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-20 mb-20">
+                <div class="col-span-1">
+                    <div class="text-2xl font-light tracking-tighter text-white mb-8">
+                        <span class="font-serif-kr italic">the</span> <span class="font-bold">Travel.is</span>
+                    </div>
+                    <p class="text-xs leading-relaxed max-w-xs font-light">
+                        (주)더 트래블이즈는 리조트 전문 개발·마케팅 법인입니다. 신뢰할 수 있는 파트너 여행사를 위한 직계약 상품을 큐레이션합니다.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white text-[10px] tracking-[0.3em] font-bold uppercase mb-8 opacity-40">Destinations</h5>
+                    <ul class="space-y-4 text-[13px] font-light">
+                        <li><a href="#" class="hover:text-white transition-colors">필리핀 · Philippines</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">괌 · Guam</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">발리 · Bali</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">몰디브 · Maldives</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors font-bold">전체보기 →</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-[10px] tracking-[0.3em] font-bold uppercase mb-8 opacity-40">Partners</h5>
+                    <ul class="space-y-4 text-[13px] font-light">
+                        <li><a href="#" class="hover:text-white transition-colors">B2B 파트너 가입</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">파트너 로그인</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">상품 요청서</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">단체 · 인센티브</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white text-[10px] tracking-[0.3em] font-bold uppercase mb-8 opacity-40">Company</h5>
+                    <ul class="space-y-4 text-[13px] font-light">
+                        <li><a href="#" class="hover:text-white transition-colors">회사소개</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">오시는 길</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">관광사업 등록증</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">개인정보처리방침</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest font-light">
+                <div class="mb-6 md:mb-0">© 2026 THE TRAVEL IS CO., LTD. ALL RIGHTS RESERVED.</div>
+                <div class="flex space-x-8">
+                    <span>KATA 한국여행업협회</span>
+                    <span>·</span>
+                    <span>서울보증보험 ₩55M</span>
+                    <span>·</span>
+                    <span>사업자 123-45-67890</span>
+                </div>
+            </div>
         </div>
-        <p class="text-[10px] tracking-widest font-light opacity-50 uppercase">© 2024 The Travel Is Resort Group. All rights reserved.</p>
     </footer>
 
     <script>
-        // 스크롤 시 네비게이션 바 배경색 변경 및 페이드 인 효과
+        // 스크롤 인터랙션
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             const fadeElements = document.querySelectorAll('.fade-in');
             
             // 네비게이션 효과
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-stone-900/90', 'py-4', 'backdrop-blur-sm');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-[#1e4e70]/95', 'py-4', 'backdrop-blur-md', 'shadow-lg');
                 navbar.classList.remove('py-6');
             } else {
-                navbar.classList.remove('bg-stone-900/90', 'py-4', 'backdrop-blur-sm');
+                navbar.classList.remove('bg-[#1e4e70]/95', 'py-4', 'backdrop-blur-md', 'shadow-lg');
                 navbar.classList.add('py-6');
             }
 
-            // 페이드 인 요소 체크
+            // 페이드 인 효과
             fadeElements.forEach(el => {
                 const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.85) {
+                if (rect.top < window.innerHeight * 0.9) {
                     el.classList.add('visible');
                 }
             });
         });
 
-        // 초기 히어로 텍스트 애니메이션
+        // 초기 실행
         window.onload = () => {
-            setTimeout(() => {
-                document.getElementById('hero-text').classList.add('visible');
-            }, 300);
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 100);
+                }
+            });
         };
     </script>
-
-    <style>
-        /* 스크롤 다운 애니메이션 선 */
-        @keyframes scroll-down {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-        .animate-scroll-down {
-            animation: scroll-down 2s infinite ease-in-out;
-        }
-    </style>
 </body>
 </html>
